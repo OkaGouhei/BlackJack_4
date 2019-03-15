@@ -7,7 +7,10 @@ class Card{
   public Card(){
     card = new ArrayList<Integer>();//playerのカードが格納されるList
   }
-
+  /**
+  * show_card メソッド
+  * 持ちカードを表示する
+  */
   public void show_card(){
     for(int i =0; i < card.size() ; i++){
       card_no_mark(card.get(i));
