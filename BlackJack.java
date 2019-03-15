@@ -7,67 +7,70 @@ public class BlackJack{
   public static void main(String[] args) {
     Deck a;
     a = new Deck();
-    // System.out.println(a.card);
-    List<Integer> player_card = new ArrayList<Integer>();//playerのカードが格納されるList
+
+    Card player;
+    player = new Card();
+
+
     System.out.println("playerのカード");
-    a.deal(player_card);
-    a.deal(player_card);
-    show_card(player_card);
+    a.deal(player.card);
+    a.deal(player.card);
+    show_card(player.card);
 
-    //dealer のカードが入るListを用意する
-    List<Integer> dealer_card = new ArrayList<Integer>();
-    System.out.println("dealerのカード");
-    a.deal(dealer_card);
-    a.deal(dealer_card);
-    dealer_show_card(dealer_card);
+    // //dealer のカードが入るListを用意する
+    // List<Integer> dealer_card = new ArrayList<Integer>();
+    // System.out.println("dealerのカード");
+    // a.deal(dealer_card);
+    // a.deal(dealer_card);
+    // dealer_show_card(dealer_card);
 
-    int draw;
-    Scanner scan = new Scanner(System.in);
-    do{
-      System.out.print("カードを引きますか？ (yes 0/no 1)");
-      // Scanner scan = new Scanner(System.in);
-      draw =scan.nextInt();
-      if (draw == 0){
-        System.out.println("カードを引きます");
-        card_no_mark(a.deal(player_card));//引いたカードを表示
-      } else if(draw == 1){
-        System.out.println("カードを引きません");
-      }
-      else {
-        System.out.println("もう一度お願いします");
-      }
-    }while(draw != 1 && point_card(player_card) <= 21);//1 を選択しない限り繰り返します
+    // int draw;
+    // Scanner scan = new Scanner(System.in);
+    // do{
+    //   System.out.print("カードを引きますか？ (yes 0/no 1)");
+    //   // Scanner scan = new Scanner(System.in);
+    //   draw =scan.nextInt();
+    //   if (draw == 0){
+    //     System.out.println("カードを引きます");
+    //     card_no_mark(a.deal(player_card));//引いたカードを表示
+    //   } else if(draw == 1){
+    //     System.out.println("カードを引きません");
+    //   }
+    //   else {
+    //     System.out.println("もう一度お願いします");
+    //   }
+    // }while(draw != 1 && point_card(player_card) <= 21);//1 を選択しない限り繰り返します
 
-     scan.close();//scanner は閉じる習慣をつける
-    //現在のカードを見せる
-    System.out.println("playerのカードは");
-    show_card(player_card);
-    if (point_card(player_card) > 21){
-      System.out.println("playerはバーストしました");
-    }else{
-      System.out.println("playerのポイントは"+point_card(player_card));
-    }
-    //dealer のカード 17以上になるまでカードを引く
-    while(point_card(dealer_card) < 17){
-      a.deal(dealer_card);
-    }
-    System.out.println("dealerのカードは");
-    show_card(dealer_card);
-    if (point_card(dealer_card) > 21){
-      System.out.println("dealerはバーストしました");
-    }else{
-      System.out.println("dealerのポイントは"+point_card(dealer_card));
-    }
-    //勝敗を決定する
-    if(point_card(player_card) > 21){
-      System.out.println("dealer の勝ちです");
-    }else if (point_card(dealer_card)>21 || point_card(player_card)> point_card(dealer_card)){
-      System.out.println("player の勝ちです");
-    }else if (point_card(player_card)<point_card(dealer_card)){
-      System.out.println("dealer の勝ちです");
-    }else{
-      System.out.println("引き分けです");
-    }
+    //  scan.close();//scanner は閉じる習慣をつける
+    // //現在のカードを見せる
+    // System.out.println("playerのカードは");
+    // show_card(player_card);
+    // if (point_card(player_card) > 21){
+    //   System.out.println("playerはバーストしました");
+    // }else{
+    //   System.out.println("playerのポイントは"+point_card(player_card));
+    // }
+    // //dealer のカード 17以上になるまでカードを引く
+    // while(point_card(dealer_card) < 17){
+    //   a.deal(dealer_card);
+    // }
+    // System.out.println("dealerのカードは");
+    // show_card(dealer_card);
+    // if (point_card(dealer_card) > 21){
+    //   System.out.println("dealerはバーストしました");
+    // }else{
+    //   System.out.println("dealerのポイントは"+point_card(dealer_card));
+    // }
+    // //勝敗を決定する
+    // if(point_card(player_card) > 21){
+    //   System.out.println("dealer の勝ちです");
+    // }else if (point_card(dealer_card)>21 || point_card(player_card)> point_card(dealer_card)){
+    //   System.out.println("player の勝ちです");
+    // }else if (point_card(player_card)<point_card(dealer_card)){
+    //   System.out.println("dealer の勝ちです");
+    // }else{
+    //   System.out.println("引き分けです");
+    // }
 
   }
 
