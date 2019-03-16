@@ -15,15 +15,16 @@ class Deck{
   /**
   * deal メソッド
   * ランダムに引いたカードの数を返す
+  * 返り値 引いたカードの数
   */
-  public int deal(List<Integer> card){
+  public int deal(){
     Random rnd1 = new Random();
     int ran1;
     do{
       ran1 = rnd1.nextInt(52);//0~51までの数字がランダムにran1に格納される
     }while(trump[ran1] != true);
     trump[ran1]= false;
-    card.add(ran1) ;
     return ran1;
   }
 }
+
